@@ -1,9 +1,12 @@
 {
+    "DEBUG_VERSION": true,
     "SECRET_KEY": "django-insecure-p_s-#r(1vpq7)!@^(21+u)lv51jwcz^(i3ig_u9fc2qltimgpc",
     "ALLOWED_HOSTS": "[\"*\"]",
     "BD_USER": "baseTestForNewJob",
     "BD_PASSWORD": "basePassForNewJob",
     "BD_HOST": "localhost",
     "BD_PORT": "5432",
-    "BD_NAME": "newJobDB"
+    "BD_NAME": "newJobDB",
+    "LANGUAGE_CODE": "pt-br",
+    "TIME_ZONE": "America/Recife"
 }

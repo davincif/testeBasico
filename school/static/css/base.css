@@ -1,0 +1,106 @@
+#person-icon{
+    font-size: 25px;
+}
+#navbarDropdownMenuLink{
+    color: #a9afbbd1;
+}
+
+[data-notify="container"] {
+    z-index: 9999 !important;
+}
+
+@media(max-width: 990px){
+    .modal-dialog{
+        margin-left: 0px;
+    }
+    [data-notify="container"] {
+        left: 0px !important;
+    }
+}
+@media(min-width: 990px){
+    .modal-dialog{
+        margin-left: 260px;
+    }
+    [data-notify="container"] {
+        left: 260px !important;
+    }
+}
+
+.modal-dialog{
+    max-width: 2000px;
+    display: flex;
+    justify-content: center;
+}
+*:focus {
+    outline: 0px !important;
+}
+.card-header{
+    margin: 0px !important;
+    border-radius: 6px 6px 0px 0px !important;
+}
+.card-body{
+    border: 0px;
+}
+.modal-button{
+    display: flex;
+    user-select: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    -webkit-transition: background-color 0.25s;
+    transition: background-color 0.25s;
+}
+.modal-button:hover{
+    cursor: pointer;
+    background-color: #cb92d3;
+}
+input[type=text]{
+    padding-top: 10px;
+}
+input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: transparent !important;
+}
+
+input:focus::-moz-placeholder { /* Firefox 19+ */
+    color: transparent !important;
+}
+
+input:focus:-ms-input-placeholder { /* IE 10+ */
+    color: transparent !important;
+}
+input:focus:-moz-placeholder { /* Firefox 18- */
+    color: transparent !important;
+}
+#mobile-details{
+    display: flex;
+    align-items: center;
+}
+#divider{
+    height: 1px;
+    background-color: white;
+    width: 100%;
+    opacity: 0.1;
+}
+#content-divider{
+    margin-top: 69px;
+    padding-top: 0px;
+}
+.button{
+    display: flex;
+    user-select: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    -webkit-transition: background-color 0.25s;
+    transition: background-color 0.25s;
+    cursor: pointer;
+}
+.button:hover{
+    cursor: pointer;
+    background-color: #611880;
+}

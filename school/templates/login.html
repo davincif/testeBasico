@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet" />
+{% endblock title %}
+
+{% block content %}
+<div id="container">
+    <div class="card" id="box">
+        <div class="card-header card-header-primary" id="title">
+            <h4 class="card-title" id="titlecontent">Login</h4>
+        </div>
+        <div class="card-body">
+            <form action="" method='POST'> {% csrf_token %}
+                <div class="input-group form-control-sm" id="input">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="input-icon">
+                            <i class="material-icons">mail</i>
+                        </span>
+                    </div>
+                    <span class="form-group bmd-form-group" id="input-box">
+                        <label for="inputEmail" class="bmd-label-floating">Endereço de e-mail</label>
+                        <input type="email" class="form-control" name="email" value="{{form.email.value|default:''}}">
+                    </span>
+                </div>
+                <div class="input-group form-control-sm" id="input">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="input-icon">
+                            <i class="material-icons">lock_outline</i>
+                        </span>
+                    </div>
+                    <span class="form-group bmd-form-group" id="input-box">
+                        <label for="inputPassword" class="bmd-label-floating">Senha</label>
+                        <input type="password" class="form-control" name="password">
+                    </span>
+                </div>
+                <div id="buttons">
+                    <button type="submit" class="btn" id="button">Entrar</button>
+                    <button type="button" class="btn" id="button"
+                        onclick="window.location.href = '{%url 'recovery_url' %}';">Recuperar senha</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
