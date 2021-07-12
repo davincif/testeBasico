@@ -1,0 +1,14 @@
+version: '3'
+
+
+services:
+
+  # psql baseTestForNewJob -h 127.0.0.1 -d newJobDB -f ./trash/script.sql
+  basett_db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=baseTestForNewJob
+      - POSTGRES_PASSWORD=basePassForNewJob
+      - POSTGRES_DB=newJobDB
+    ports:
+      - 5432:5432

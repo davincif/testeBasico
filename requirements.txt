@@ -1,0 +1,6 @@
+django==3.2.5
+sqlparse==0.4.1
+asgiref==3.4.1
+pytz==2021.1
+varenv==1.0.5
+psycopg2-binary==2.9.1

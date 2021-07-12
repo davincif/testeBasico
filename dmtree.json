@@ -1,0 +1,111 @@
+{
+	"development": [
+		"dependencymanager",
+		"autopep8",
+		"toml",
+		"pycodestyle"
+	],
+	"production": [
+		"django",
+		"sqlparse",
+		"asgiref",
+		"pytz",
+		"varenv",
+		"psycopg2-binary"
+	],
+	"packs": {
+		"dependencymanager": {
+			"head": true,
+			"version": "1.0.0",
+			"requires": [],
+			"required-by": [],
+			"dev": true
+		},
+		"django": {
+			"head": true,
+			"version": "3.2.5",
+			"requires": [
+				"sqlparse",
+				"asgiref",
+				"pytz"
+			],
+			"required-by": [],
+			"dev": false
+		},
+		"sqlparse": {
+			"head": false,
+			"version": "0.4.1",
+			"requires": [],
+			"required-by": [
+				"django"
+			],
+			"dev": false
+		},
+		"asgiref": {
+			"head": false,
+			"version": "3.4.1",
+			"requires": [],
+			"required-by": [
+				"django"
+			],
+			"dev": false
+		},
+		"pytz": {
+			"head": false,
+			"version": "2021.1",
+			"requires": [],
+			"required-by": [
+				"django"
+			],
+			"dev": false
+		},
+		"autopep8": {
+			"head": true,
+			"version": "1.5.7",
+			"requires": [
+				"toml",
+				"pycodestyle"
+			],
+			"required-by": [],
+			"dev": true
+		},
+		"toml": {
+			"head": false,
+			"version": "0.10.2",
+			"requires": [],
+			"required-by": [
+				"autopep8"
+			],
+			"dev": true
+		},
+		"pycodestyle": {
+			"head": false,
+			"version": "2.7.0",
+			"requires": [],
+			"required-by": [
+				"autopep8"
+			],
+			"dev": true
+		},
+		"varenv": {
+			"head": true,
+			"version": "1.0.5",
+			"requires": [],
+			"required-by": [],
+			"dev": false
+		},
+		"psycopg2-binary": {
+			"head": true,
+			"version": "2.9.1",
+			"requires": [],
+			"required-by": [],
+			"dev": false
+		}
+	},
+	"pipdeps": [
+		"pip",
+		"pkg-resources",
+		"setuptools",
+		"wheel"
+	]
+}

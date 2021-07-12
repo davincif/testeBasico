@@ -1,0 +1,10 @@
+# envs
+/.virenv
+/.vscode
+
+# python
+*/**/.pyc*
+*/**/__pycache__
+
+# others
+/trash
