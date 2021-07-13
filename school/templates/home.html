@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet" />
+{% endblock title %}
+
+{% block content %}
+<div id="container">
+  <div class="card" id="box">
+    <div class="card-header card-header-primary" id="title">
+      <h4 class="card-title" id="titlecontent">Escola</h4>
+    </div>
+
+    <div id="school-card-body" class="card-body">
+      <div class="card bg-dark clickable-card">
+        <div class="card-body">
+          <h5 class="card-title">Aulas</h5>
+          <p class="card-text">Gerencies os aulas da Escola</p>
+          <a href="classrooms/" class="btn btn-primary">Entrar</a>
+        </div>
+      </div>
+
+      <div class="card bg-dark clickable-card">
+        <div class="card-body">
+          <h5 class="card-title">Professores</h5>
+          <p class="card-text">Gerencies os professores da Escola</p>
+          <a href="teachers/" class="btn btn-primary">Entrar</a>
+        </div>
+      </div>
+
+      <div class="card bg-dark clickable-card">
+        <div class="card-body">
+          <h5 class="card-title">Alunos</h5>
+          <p class="card-text">Gerencies os alunos da Escola</p>
+          <a href="students/" class="btn btn-primary">Entrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

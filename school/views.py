@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseForbidden
 
 
-def students(request):
+def home(request):
     if request.method == 'GET':
-        return render(request, 'students.html')
+        return render(request, 'home.html')
     else:
         return HttpResponseForbidden()

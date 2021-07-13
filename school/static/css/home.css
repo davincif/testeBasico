@@ -1,0 +1,43 @@
+#container {
+    padding: 1em;
+}
+
+#school-card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.card-title {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    color: white !important;
+}
+
+.clickable-card {
+    width: 18rem;
+}
+/* .clickable-card:hover {
+    cursor: pointer;
+} */
+
+.card-text {
+    width: 100%;
+    text-align: justify;
+    text-justify: distribute;
+    color: white !important;
+}
+.btn {
+    font-weight: 600 !important;
+}
+
+.clickable-card .btn {
+    width: 100%;
+    padding: 1em 0;
+}
+
+.clickable-card .card-body {
+    /* background-color: #425585; */
+    border-radius: 6px;
+}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<link href="{% static 'css/classrooms.css' %}" rel="stylesheet" />
+{% endblock title %}
+
+{% block content %}
+<div id="container">
+  <div class="list-shard">
+    <ul class="list-group">
+      {% for classroom in classrooms %}
+        <li class="list-group-item bg-info text-dark">{{ classroom.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if classrooms.has_previous %}
+    <a href="?page=1">&laquo; início</a>
+    <a href="?page={{ classrooms.previous_page_number }}">anterior</a>
+  {% endif %}
+
+  <span class="current">
+      Página {{ classrooms.number }} de {{ classrooms.paginator.num_pages }}.
+  </span>
+
+  {% if classrooms.has_next %}
+    <a href="?page={{ classrooms.next_page_number }}">próximo</a>
+    <a href="?page={{ classrooms.paginator.num_pages }}">último &raquo;</a>
+  {% endif %}
+</div>
+{% endblock content %}

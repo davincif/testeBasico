@@ -1,0 +1,28 @@
+hr {
+    color: white;
+    background-color: white;
+}
+
+#container {
+    color: white;
+}
+
+.list-shard {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.list-group {
+    margin: 1em 0;
+    max-width: 40em;
+}
+
+.list-group-item {
+    margin: 1em;
+    border-radius: 6px;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+}
