@@ -7,26 +7,60 @@
 
 {% block content %}
 <div id="container">
+  <h1 class="title-text text-center">
+    Aulas
+  </h1>
+
   <div class="list-shard">
     <ul class="list-group">
       {% for classroom in classrooms %}
-        <li class="list-group-item bg-info text-dark">{{ classroom.name }}</li>
+        <a
+          class="list-group-item bg-info text-dark btn btn-primary"
+          href="details/?cr={{ classroom.id }}"
+          v-on:click="toggleDetailModal"
+        >
+          {{ classroom.name }}
+        </a>
       {% endfor %}
     </ul>
   </div>
 
   {% if classrooms.has_previous %}
-    <a href="?page=1">&laquo; início</a>
-    <a href="?page={{ classrooms.previous_page_number }}">anterior</a>
+    <div class="control-painel">
+      <a
+        class="btn btn-primary bg-info text-dark control-btn"
+        href="?page=1"
+      >
+        &laquo; início
+      </a>
+      <a
+        class="btn btn-primary bg-info text-dark control-btn"
+        href="?page={{ classrooms.previous_page_number }}"
+      >
+        anterior
+      </a>
+    </div>
   {% endif %}
-
-  <span class="current">
-      Página {{ classrooms.number }} de {{ classrooms.paginator.num_pages }}.
-  </span>
 
   {% if classrooms.has_next %}
-    <a href="?page={{ classrooms.next_page_number }}">próximo</a>
-    <a href="?page={{ classrooms.paginator.num_pages }}">último &raquo;</a>
+    <div class="control-painel">
+      <a
+        class="btn btn-primary bg-info text-dark control-btn"
+        href="?page={{ classrooms.next_page_number }}"
+      >
+        próximo
+      </a>
+      <a
+        class="btn btn-primary bg-info text-dark control-btn"
+        href="?page={{ classrooms.paginator.num_pages }}"
+      >
+        último &raquo;
+      </a>
+    </div>
   {% endif %}
+
+  <span class="current-pg">
+      Página {{ classrooms.number }} de {{ classrooms.paginator.num_pages }}.
+  </span>
 </div>
 {% endblock content %}

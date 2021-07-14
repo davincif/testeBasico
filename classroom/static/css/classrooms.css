@@ -1,10 +1,21 @@
-hr {
-    color: white;
-    background-color: white;
-}
-
 #container {
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.title-text {
+    font-weight: 600;
+}
+
+.text-center {
+    margin-top: 0.5em;
+}
+
+.text-dark {
+    font-weight: 600;
+    font-size: 1em;
 }
 
 .list-shard {
@@ -15,14 +26,33 @@ hr {
 
 .list-group {
     margin: 1em 0;
-    max-width: 40em;
+    width: 35em;
 }
 
 .list-group-item {
-    margin: 1em;
-    border-radius: 6px;
+    margin: 0.5em;
+    border-radius: 6px !important;
 }
 
 .list-group-item:hover {
     cursor: pointer;
+}
+
+.btn {
+    text-transform: none;
+}
+
+.control-painel {
+    display: inline-block;
+}
+
+.control-btn {
+    max-width: 10em;
+    /* margin: 0.5em 0; */
+    border: 0 solid;
+}
+
+.current-pg {
+    margin-top: 0.5em;
+    font-size: 0.85em;
 }

@@ -1,0 +1,31 @@
+#container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.table {
+    color: white;
+}
+
+.title-text {
+    font-weight: 600;
+}
+
+.text-center {
+    margin-top: 0.5em;
+}
+
+.details-form {
+    margin-top: 2em;
+    max-width: 30em;
+}
+
+.input-group-text {
+    width: 4em;
+}
+
+.control-btn {
+    width: 5em;
+}

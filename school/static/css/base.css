@@ -1,3 +1,7 @@
+body {
+    background-color: #010127;
+}
+
 input[type=text] {
     padding-top: 10px;
 }
