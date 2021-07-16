@@ -64,6 +64,7 @@ python manage.py runserver
 * Jquery
 * Vue.js
 * Bootstrap 5
+* GIT
 
 ## Why These Technologies?
 
@@ -77,7 +78,20 @@ Although I have much more experience making front-ends in SPA's (Single Page App
 
 * **Jquery** was only used to make it easier to make some queries to the html, pretty standard use.
 
-* **Bootstrap** well, I'm very bad at web design, I usually implement someone else's design, which is a pretty normal development pipe in the industry. So I was expecting already that my website would look bad and with horrible taste for colors :man_facepalming:. Therefore using Bootstrap would not only speed up my styling, but it's also the only hope that I wouldn't look border line unprofessional with my design.
+* **Bootstrap**, well... I'm very bad at web design, I usually implement someone else's design, which is a pretty normal development pipe in the industry. So I was expecting already that my website would look bad and with horrible taste for colors :man_facepalming:. Therefore using Bootstrap would not only speed up my styling, but it's also the only hope that I wouldn't look border line unprofessional with my design.
+
+* **GIT** to avoid unecessary losses. ^^" I make use of the rebasing then mergin with FF (Fast-Forward) technic, that's why there's no merge msg in the commits or things of the sort. But yes I craeted branches for each task, then rebased, merged and deleted.
+
+## About the Extra Points for the Project
+In the _Extra points_ section I'm asked to say what's missing in the SQL script. And although my knowledges about pure SQL are rusty, I think I can give it a go:
+
+* **SALA** - It's missing to add the **CONSTRAIN** to **PRIMARY KEY** in the **ID** fild.
+
+* **PROFESSOR** - Missing THE **CONSTRAIN** to **FOREING KEY** in the **ID_SALA** fild.
+
+* **ALUNO** - Missing THE **CONSTRAIN** to **FOREING KEY** in the **ID_PROFESSOR** fild. Also, as Stundents must have a teacher it's also missing to add **NOT NULL** to the field above mentioned.
+
+* **EXTRA** - All in all, in **PROFESSOR** and **ALUNO** I would consider the use of the statement **CASCADE** to garantee the correctness and consitency of the data base over time.
 
 <!-- psql baseTestForNewJob -h 127.0.0.1 -d newJobDB -f ./trash/script.sql
  -->
