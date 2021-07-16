@@ -13,4 +13,4 @@ class TeacherForm(ModelForm):
             raise ValidationError("Campo 'nome' precisa estar presente")
 
         if not self.cleaned_data.get('classroom'):
-            raise ValidationError("Campo 'aula' precisa estar presente")
+            raise ValidationError("Campo 'classes' precisa estar presente")
