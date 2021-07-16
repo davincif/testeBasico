@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<link href="{% static 'css/teacher_add.css' %}" rel="stylesheet" />
+{% endblock title %}
+
+{% block content %}
+<div id="vue-app">
+  <div id="container">
+    <div class="header">
+      <a
+        class="btn btn-light text-dark"
+        href="{{request.META.HTTP_REFERER|escape}}"
+      >
+        <i class="bi bi-arrow-left"></i>
+      </a>
+      <div class="header-title">
+        <h1 class="title-text">
+          Adicionar
+        </h1>
+      </div>
+    </div>
+
+    <form
+      class="classroom-form"
+      method="POST"
+      action=""
+      disabled
+    >
+      {% csrf_token %}
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">nome</span>
+        <input
+          type="text"
+          value="{{ form.name.value|default_if_none:'' }}"
+          class="form-control"
+          placeholder="Nome do Professor"
+          aria-label="Nome da Matéria"
+          aria-describedby="basic-addon1"
+          name="name"
+          :disabled="!editing"
+        />
+        {% comment %} {{ form.name.errors }} {% endcomment %}
+      </div>
+
+      <div class="input-group mb-3">
+          <span class="input-group-text">aula</span>
+          <select
+            class="form-select"
+            name="classroom"
+            type="text"
+            id="classroom-select"
+            data-width="100%"
+            v-bind:disabled="!editing"
+          >
+            <option
+              value="{{ info.classroom.id|default_if_none:'' }}"
+              selected
+              v-show="!editing"
+            >
+              {{ info.classroom.name|default_if_none:'' }}
+            </option>
+            {% for class in classrooms %}
+              <option v-show="editing" value="{{ class.id|default_if_none:'' }}">{{ class.name|default_if_none:'??' }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="text-warning">
+          {{ form.non_field_errors }}
+        </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary bg-info text-dark save-btn"
+      >
+        Salvar
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<link href="{% static 'css/classroom_details.css' %}" rel="stylesheet" />
+<link href="{% static 'css/teacher_details.css' %}" rel="stylesheet" />
 {% endblock title %}
 
 {% block content %}
@@ -26,7 +26,7 @@
       <div class="input-group mb-3">
         <span class="input-group-text">id</span>
         <input
-          id="classroom-id"
+          id="teacher-id"
           type="text"
           value="{{info.id}}"
           class="form-control"
@@ -58,6 +58,30 @@
           />
           {% comment %} {{ form.name.errors }} {% endcomment %}
         </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">aula</span>
+          <select
+            class="form-select"
+            name="classroom"
+            type="text"
+            id="classroom-select"
+            data-width="100%"
+            v-bind:disabled="!editing"
+          >
+            <option
+              value="{{ info.classroom.id|default_if_none:'' }}"
+              selected
+              v-show="!editing"
+            >
+              {{ info.classroom.name|default_if_none:'' }}
+            </option>
+            {% for class in classrooms %}
+              <option v-show="editing" value="{{ class.id|default_if_none:'' }}">{{ class.name|default_if_none:'??' }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
         <div class="text-warning">
           {{ form.non_field_errors }}
         </div>
@@ -86,7 +110,7 @@
           v-if="!editing"
           type="button"
           class="btn btn-primary bg-info text-dark control-btn"
-          v-on:click="deleteClassroom"
+          v-on:click="deleteTeacher"
         >
           Excluir
         </button>
@@ -110,5 +134,5 @@
 {% endblock content %}
 
 {% block body_scritps %}
-  <script type="text/javascript" src="{% static 'js/classroom_details.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/teacher_details.js' %}"></script>
 {% endblock body_scritps %}

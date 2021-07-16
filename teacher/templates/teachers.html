@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<link href="{% static 'css/teachers.css' %}" rel="stylesheet" />
+{% endblock title %}
+
+{% block content %}
+<div id="container">
+  <div class="header">
+    <a
+      class="btn btn-light text-dark"
+      href="{{request.META.HTTP_REFERER|escape}}"
+    >
+      <i class="bi bi-arrow-left"></i>
+    </a>
+    <div class="header-title">
+      <h1 class="title-text">
+        Professores
+      </h1>
+    </div>
+  </div>
+
+  <div class="list-shard">
+    <ul class="list-group">
+      {% for teacher in teachers %}
+        <a
+          class="list-group-item bg-info text-dark btn btn-primary"
+          href="details/?cr={{ teacher.id }}"
+          v-on:click="toggleDetailModal"
+        >
+          <div class="show-data">
+            {{ teacher.name }}
+          </div>
+        </a>
+      {% endfor %}
+      <a
+        class="btn btn-info text-dark add-btn"
+        href="add/"
+      >
+        +
+      </a>
+    </ul>
+  </div>
+
+</div>
+{% endblock content %}

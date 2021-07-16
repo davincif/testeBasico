@@ -23,7 +23,6 @@ def classrooms(request):
 
 
 def classroom_details(request):
-
     if request.method == 'POST':
         info = __get_details(request)[0]
         form = ClassroomForm(request.POST, instance=info)
@@ -46,30 +45,22 @@ def classroom_details(request):
 
 
 def classroom_add(request):
-    print("\n\n")
-
     if request.method == 'POST':
         form = ClassroomForm(request.POST)
-        print("POST")
         if form.is_valid():
-            print("is_valid")
-            name = form.cleaned_data.get('name')
-            print("name", name)
             try:
-                info = Classroom(name=name)
+                info = Classroom(name=form.cleaned_data.get('name'))
                 info.save()
             except Exception:
                 return HttpResponseServerError("Impossible to save classrom")
 
-        return render(request, 'classroom_add.html', {'form': form})
+        return redirect('classrooms_url')
     if request.method == 'GET':
         form = ClassroomForm()
-        print("GET", form)
 
         return render(request, 'classroom_add.html', {'form': form})
     else:
         return HttpResponseForbidden()
-    print("\n\n")
 
 
 def classroom_delete(request):
