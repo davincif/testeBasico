@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponseServerError
 from django.core.paginator import Paginator
 
@@ -41,6 +41,38 @@ def classroom_details(request):
         form = ClassroomForm(instance=info)
 
         return render(request, 'classroom_details.html', {'info': info, 'form': form})
+    else:
+        return HttpResponseForbidden()
+
+
+def classroom_add(request):
+    if request.method == 'POST':
+        form = ClassroomForm(request.POST)
+
+        if form.is_valid():
+            try:
+                info = Classroom(name=form.cleaned_data.get('name'))
+                info.save()
+            except Exception:
+                return HttpResponseServerError("Impossible to save classrom")
+
+        return render(request, 'classroom_add.html')
+    if request.method == 'GET':
+        return render(request, 'classroom_add.html')
+    else:
+        return HttpResponseForbidden()
+
+
+def classroom_delete(request):
+    if request.method == 'POST':
+        info = __get_details(request)[0]
+
+        try:
+            info.delete()
+        except Exception:
+            return HttpResponseServerError("Impossible to delete classrom")
+
+        return redirect('classrooms_url')
     else:
         return HttpResponseForbidden()
 

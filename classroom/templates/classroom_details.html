@@ -9,23 +9,30 @@
 <div id="vue-app">
   <div id="container">
     <h1 class="title-text text-center">
-      details
+      Informações
     </h1>
 
     <div class="details-form">
       <div class="input-group mb-3">
         <span class="input-group-text">id</span>
-        <input type="text" value="{{info.id}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled>
+        <input
+          id="classroom-id"
+          type="text"
+          value="{{info.id}}"
+          class="form-control"
+          placeholder="Nome da Matéria"
+          aria-label="Nome da Matéria"
+          aria-describedby="basic-addon1"
+          disabled
+        />
       </div>
 
       <form
+        id="edit-form"
         method="POST"
         action=""
-        disabled
       >
         {% csrf_token %}
-
-        {{ form.non_field_errors }}
 
         <div class="input-group mb-3">
           <span class="input-group-text">name</span>
@@ -39,7 +46,10 @@
             name="name"
             :disabled="!editing"
           />
-          {{ form.name.errors }}
+          {% comment %} {{ form.name.errors }} {% endcomment %}
+        </div>
+        <div class="text-warning">
+          {{ form.non_field_errors }}
         </div>
 
         <button
@@ -47,17 +57,42 @@
           class="btn btn-primary bg-info text-dark control-btn"
           v-if="editing"
         >
-          Submit
+          Salvar
         </button>
         <button
           type="button"
           class="btn btn-primary bg-info text-dark control-btn"
-          v-else
           v-on:click="editToggle"
         >
-          Edit
+          <div v-if="!editing || !everClicked">
+            Edit
+          </div>
+          <div v-else>
+            Cancel
+          </div>
+        </button>
+
+        <button
+          v-if="!editing"
+          type="button"
+          class="btn btn-primary bg-info text-dark control-btn"
+          v-on:click="deleteClassroom"
+        >
+          Excluir
         </button>
       </form>
+
+
+      <form
+        method="POST"
+        action="delete/?cr={{info.id}}"
+        v-show="false"
+      >
+        {% csrf_token %}
+        <button id="save-form-btn" type="submit">
+        </button>
+      </form>
+
     </div>
 
   </div>

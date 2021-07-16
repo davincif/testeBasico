@@ -5,22 +5,16 @@
     align-items: center
 }
 
+
 .title-text {
     font-weight: 600;
     margin-top: 0.5em;
 }
 
-.details-form {
-    margin-top: 2em;
-    max-width: 30em;
+.classroom-form {
+    margin-top: 1em;
 }
 
-.input-group-text {
-    width: 4em;
-}
-
-.control-btn {
-    width: 5em;
-    border: 0px;
-    margin: 1em 1em 0 0;
+.save-btn {
+    margin-top: 1em;
 }
