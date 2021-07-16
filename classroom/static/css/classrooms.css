@@ -1,3 +1,8 @@
+h1 {
+    margin: 0;
+}
+
+
 #container {
     color: white;
     display: flex;
@@ -5,12 +10,27 @@
     align-items: center
 }
 
-.title-text {
-    font-weight: 600;
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 35em;
+    margin: 2em 0 1em 0;
 }
 
-.text-center {
-    margin-top: 0.5em;
+.header-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bi-arrow-left {
+    font-size: 2em;
+    font-weight: 900;
+}
+
+.title-text {
+    font-weight: 600;
 }
 
 .text-dark {
@@ -39,6 +59,7 @@
 }
 
 .btn {
+    border: 6px;
     text-transform: none;
 }
 
@@ -48,7 +69,6 @@
 
 .control-btn {
     max-width: 10em;
-    /* margin: 0.5em 0; */
     border: 0 solid;
 }
 
@@ -58,7 +78,9 @@
 }
 
 .add-btn {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-top: 0.5em;
+    padding: 0 auto !important;
     border-radius: 6px;
+    font-weight: 900;
 }

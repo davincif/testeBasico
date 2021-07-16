@@ -8,9 +8,19 @@
 {% block content %}
 <div id="vue-app">
   <div id="container">
-    <h1 class="title-text text-center">
-      Adicionar
-    </h1>
+    <div class="header">
+      <a
+        class="btn btn-light text-dark"
+        href="{{request.META.HTTP_REFERER|escape}}"
+      >
+        <i class="bi bi-arrow-left"></i>
+      </a>
+      <div class="header-title">
+        <h1 class="title-text">
+          Adicionar
+        </h1>
+      </div>
+    </div>
 
     <form
       class="classroom-form"
@@ -21,10 +31,10 @@
       {% csrf_token %}
 
       <div class="input-group mb-3">
-        <span class="input-group-text">name</span>
+        <span class="input-group-text">nome</span>
         <input
           type="text"
-          value="{{ form.name.value }}"
+          value="{{ form.name.value|default_if_none:'' }}"
           class="form-control"
           placeholder="Nome da Matéria"
           aria-label="Nome da Matéria"

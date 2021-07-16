@@ -1,3 +1,8 @@
+h1 {
+    margin: 0;
+}
+
+
 #container {
     color: white;
     display: flex;
@@ -6,13 +11,31 @@
 }
 
 
+.header {
+    display: flex;
+    align-items: center;
+    width: 35em;
+    margin: 2em 0 1em 0;
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .title-text {
     font-weight: 600;
-    margin-top: 0.5em;
+}
+
+.bi-arrow-left {
+    font-size: 2em;
+    font-weight: 900;
 }
 
 .classroom-form {
     margin-top: 1em;
+    width: 35em;
 }
 
 .save-btn {

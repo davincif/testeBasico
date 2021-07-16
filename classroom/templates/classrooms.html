@@ -7,9 +7,19 @@
 
 {% block content %}
 <div id="container">
-  <h1 class="title-text text-center">
-    Aulas
-  </h1>
+  <div class="header">
+    <a
+      class="btn btn-light text-dark"
+      href="{{request.META.HTTP_REFERER|escape}}"
+    >
+      <i class="bi bi-arrow-left"></i>
+    </a>
+    <div class="header-title">
+      <h1 class="title-text">
+        Aulas
+      </h1>
+    </div>
+  </div>
 
   <div class="list-shard">
     <ul class="list-group">
@@ -23,7 +33,7 @@
         </a>
       {% endfor %}
       <a
-        class="btn btn-primary bg-info text-dark add-btn"
+        class="btn btn-info text-dark add-btn"
         href="add/"
       >
         +
@@ -34,13 +44,13 @@
   {% if classrooms.has_previous %}
     <div class="control-painel">
       <a
-        class="btn btn-primary bg-info text-dark control-btn"
+        class="btn btn-info text-dark control-btn"
         href="?page=1"
       >
         &laquo; início
       </a>
       <a
-        class="btn btn-primary bg-info text-dark control-btn"
+        class="btn btn-info text-dark control-btn"
         href="?page={{ classrooms.previous_page_number }}"
       >
         anterior
@@ -51,13 +61,13 @@
   {% if classrooms.has_next %}
     <div class="control-painel">
       <a
-        class="btn btn-primary bg-info text-dark control-btn"
+        class="btn btn-info text-dark control-btn"
         href="?page={{ classrooms.next_page_number }}"
       >
         próximo
       </a>
       <a
-        class="btn btn-primary bg-info text-dark control-btn"
+        class="btn btn-info text-dark control-btn"
         href="?page={{ classrooms.paginator.num_pages }}"
       >
         último &raquo;

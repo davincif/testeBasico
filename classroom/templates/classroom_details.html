@@ -8,9 +8,19 @@
 {% block content %}
 <div id="vue-app">
   <div id="container">
-    <h1 class="title-text text-center">
-      Informações
-    </h1>
+    <div class="header">
+      <a
+        class="btn btn-light text-dark"
+        href="{{request.META.HTTP_REFERER|escape}}"
+      >
+        <i class="bi bi-arrow-left"></i>
+      </a>
+      <div class="header-title">
+        <h1 class="title-text">
+          Informações
+        </h1>
+      </div>
+    </div>
 
     <div class="details-form">
       <div class="input-group mb-3">
