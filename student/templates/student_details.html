@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<link href="{% static 'css/student_details.css' %}" rel="stylesheet" />
+{% endblock title %}
+
+{% block content %}
+<div id="vue-app">
+  <div id="container">
+    <div class="header">
+      <a
+        class="btn btn-light text-dark"
+        href="{{request.META.HTTP_REFERER|escape}}"
+      >
+        <i class="bi bi-arrow-left"></i>
+      </a>
+      <div class="header-title">
+        <h1 class="title-text">
+          Informações
+        </h1>
+      </div>
+    </div>
+
+    <div class="details-form">
+      <div class="input-group mb-3">
+        <span class="input-group-text">id</span>
+        <input
+          id="student-id"
+          type="text"
+          value="{{info.id}}"
+          class="form-control"
+          placeholder="Nome da Matéria"
+          aria-label="Nome da Matéria"
+          aria-describedby="basic-addon1"
+          disabled
+        />
+      </div>
+
+      <form
+        id="edit-form"
+        method="POST"
+        action=""
+      >
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">nome</span>
+          <input
+            type="text"
+            value="{{ form.name.value }}"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            name="name"
+            :disabled="!editing"
+          />
+          {% comment %} {{ form.name.errors }} {% endcomment %}
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">professor</span>
+          <select
+            class="form-select"
+            name="teacher"
+            type="text"
+            id="teacher-select"
+            data-width="100%"
+            v-bind:disabled="!editing"
+          >
+            <option
+              value="{{ info.teacher.id|default_if_none:'' }}"
+              selected
+              v-show="!editing"
+            >
+              {{ info.teacher.name|default_if_none:'' }}
+            </option>
+            {% for teacher in teachers %}
+              <option
+                v-show="editing"
+                value="{{ teacher.id|default_if_none:'' }}"
+              >
+                {{ teacher.name|default_if_none:'??' }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="text-warning">
+          {{ form.non_field_errors }}
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary bg-info text-dark control-btn"
+          v-if="editing"
+        >
+          Salvar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary bg-info text-dark control-btn"
+          v-on:click="editToggle"
+        >
+          <div v-if="!editing || !everClicked">
+            Edit
+          </div>
+          <div v-else>
+            Cancel
+          </div>
+        </button>
+
+        <button
+          v-if="!editing"
+          type="button"
+          class="btn btn-primary bg-info text-dark control-btn"
+          v-on:click="deleteStudent"
+        >
+          Excluir
+        </button>
+      </form>
+
+
+      <form
+        method="POST"
+        action="delete/?cr={{info.id}}"
+        v-show="false"
+      >
+        {% csrf_token %}
+        <button id="save-form-btn" type="submit">
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+{% endblock content %}
+
+{% block body_scritps %}
+  <script type="text/javascript" src="{% static 'js/student_details.js' %}"></script>
+{% endblock body_scritps %}

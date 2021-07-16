@@ -27,15 +27,19 @@ def teacher_details(request):
     if request.method == 'POST':
         info = __get_details(request)[0]
         form = TeacherForm(request.POST, instance=info)
+        classrooms = Classroom.objects.all().order_by('name')
 
         if form.is_valid():
-            info.name = form.cleaned_data.get('name')
             try:
                 info.save()
             except Exception:
-                return HttpResponseServerError("Impossible to edit classrom")
+                return HttpResponseServerError("Impossible to edit teacher")
 
-        return render(request, 'teacher_details.html', {'info': info, 'form': form})
+        return render(
+            request,
+            'teacher_details.html',
+            {'info': info, 'form': form, 'classrooms': classrooms}
+        )
     elif request.method == 'GET':
         info = __get_details(request)[0]
         form = TeacherForm(instance=info)
@@ -62,9 +66,13 @@ def teacher_add(request):
                 )
                 info.save()
             except Exception:
-                return HttpResponseServerError("Impossible to save classrom")
+                return HttpResponseServerError("Impossible to save teacher")
 
-        return redirect('teachers_url')
+            return redirect('teachers_url')
+        else:
+            classrooms = Classroom.objects.all().order_by('name')
+
+            return render(request, 'teacher_add.html', {'form': form, 'classrooms': classrooms})
     if request.method == 'GET':
         classrooms = Classroom.objects.all().order_by('name')
         form = TeacherForm()
@@ -81,7 +89,7 @@ def teacher_delete(request):
         try:
             info.delete()
         except Exception:
-            return HttpResponseServerError("Impossible to delete classrom")
+            return HttpResponseServerError("Impossible to delete teacher")
 
         return redirect('teachers_url')
     else:

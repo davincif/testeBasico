@@ -54,7 +54,9 @@ def classroom_add(request):
             except Exception:
                 return HttpResponseServerError("Impossible to save classrom")
 
-        return redirect('classrooms_url')
+            return redirect('classrooms_url')
+        else:
+            return render(request, 'classroom_add.html', {'form': form})
     if request.method == 'GET':
         form = ClassroomForm()
 

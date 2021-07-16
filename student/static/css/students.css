@@ -1,0 +1,86 @@
+h1 {
+    margin: 0;
+}
+
+
+#container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 35em;
+    margin: 2em 0 1em 0;
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bi-arrow-left {
+    font-size: 2em;
+    font-weight: 900;
+}
+
+.title-text {
+    font-weight: 600;
+}
+
+.text-dark {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.list-shard {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.list-group {
+    margin: 1em 0;
+    width: 35em;
+}
+
+.list-group-item {
+    margin: 0.5em;
+    border-radius: 6px !important;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+}
+
+.btn {
+    border: 6px;
+    text-transform: none;
+}
+
+.control-painel {
+    display: inline-block;
+}
+
+.control-btn {
+    max-width: 10em;
+    border: 0 solid;
+}
+
+.current-pg {
+    margin-top: 0.5em;
+    font-size: 0.85em;
+}
+
+.add-btn {
+    font-size: 2em;
+    margin-top: 0.5em;
+    padding: 0 auto !important;
+    border-radius: 6px;
+    font-weight: 900;
+}
